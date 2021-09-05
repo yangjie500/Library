@@ -1,0 +1,160 @@
+:root {
+    --rosewater : #D8A7B1;
+    --spearmint : #B6E2D3;
+    --cream     : #FAE8E0;
+    --hotpink   : #EF7C8E;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            font-size: 16px;
+}
+
+*,
+*:before,
+*::after {
+    -webkit-box-sizing: inherit;
+       -moz-box-sizing: inherit;
+            box-sizing: inherit;
+}
+
+body {
+    background-image: -webkit-linear-gradient(180deg,#ffc19e, #ffc3cd) ;
+    font-size: clamp(1em, 2.5vw, 1.5em)
+}
+
+
+/**/
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.label img {
+    display: none;
+    height: 8em;
+}
+
+.label h1 {
+    font-family: 'Cookie', cursive;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.label div:nth-child(3) {
+    display: flex;
+    padding: 0 5em;
+    justify-content: space-around;
+}
+
+.label div:nth-child(3) button {
+    padding: 1em;
+}
+
+.btn {
+    width: 5em;
+    margin-right: 1em;
+    text-transform: capitalize;
+}
+
+.btn-add {
+    color: white;
+    background-image: -webkit-linear-gradient(270deg, var(--rosewater) 58%, var(--hotpink));
+    border-radius: 10px;
+    border-color: palegoldenrod;
+}
+
+.btn-details {
+    color: white;
+    background-image: -webkit-linear-gradient(270deg, var(--rosewater) 58%, var(--hotpink));
+    border-radius: 10px;
+    border-color: palegoldenrod; 
+}
+
+@media only screen and (min-width: 640px) {
+    .label {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .label img {
+        display: block;
+        height: 8em;
+        margin-left: 2em;
+    }
+
+    .label div:nth-child(2) {
+        align-self: center;
+    }
+
+    .label > div:nth-child(2) {
+        margin-left: 2em;
+    }
+
+    .label div:nth-child(3) {
+        padding: 0;
+        align-items: center;
+    }
+
+    .label div:nth-child(3) button {
+        padding: 1em;
+    }
+    .btn {
+        margin-left: 2em;
+    }
+}
+
+/**/
+.modal {
+    display: none;
+    position: fixed;
+    width: 80vw ; 
+    height: 80vh;
+    background-color: var(--hotpink);
+    opacity: 90%;
+    top: 10%;
+    left: 10%;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.modal button {
+    position: absolute;
+    background-color: transparent ;
+    right: 4%;
+    top: 5%;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    border: none;
+    text-indent: 5em;
+    overflow: hidden;
+}
+
+.modal button::after {
+    content: "\00d7";
+    position: absolute;
+    left: 29%;
+    top: 8%;
+    font-size: 1.5em;
+    text-indent: 0;
+}
+
+/**/ 
+
+.grid-layout {
+    max-width: 80%;
+    height:25em;
+    margin: auto;
+    box-shadow: inset 5px 5px 10px  white,
+                inset -5px -5px 10px white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+    grid-auto-rows: 12em;
+    grid-gap: 1em;
+}
