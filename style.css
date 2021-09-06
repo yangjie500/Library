@@ -112,15 +112,21 @@ body {
 .modal {
     display: none;
     position: fixed;
-    width: 80vw ; 
+    width: 20em ; 
     height: 80vh;
-    background-color: var(--hotpink);
+    background-color: white;
     opacity: 90%;
-    top: 10%;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 20px;
-    border: 1px solid black;
+    border: 5px solid var(--hotpink);
+    padding-top: 4em;
+    z-index: 2;
 }
+
+
+
 
 .modal button {
     position: absolute;
@@ -147,14 +153,48 @@ body {
 /**/ 
 
 .grid-layout {
-    max-width: 80%;
-    height:25em;
+    max-width: 90%;
     margin: auto;
-    box-shadow: inset 5px 5px 10px  white,
-                inset -5px -5px 10px white;
+    box-shadow: inset 5px 5px 15px  white,
+                inset -5px -5px 15px white;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-    grid-auto-rows: 12em;
+    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+    grid-auto-rows: 15em;
     grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+
 }
+
+@media only screen and (max-width: 640px) {
+    .grid-layout {
+        margin-top : 1em;
+    }
+}
+
+.grid-child {
+    background-image: -webkit-linear-gradient(90deg, rgb(248, 248, 248) 50%, rgb(114, 221, 240));
+    border-radius: 50px;
+    width: 80%;
+    height: 80%;
+}   
+
+.grid-child.add {
+    padding-top: 3.5em;
+    padding-bottom: 3.5em;
+    display: flex;
+    justify-content: center;
+}
+.grid-child.add img {
+    width: 5em;
+    height: 5em;
+    margin-left: -1.1em;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+
+.grid-child.add img:hover {
+    transform: translateX(-.7em) scale(2);
+}
+

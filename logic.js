@@ -1,7 +1,7 @@
 const detailsBtn = document.querySelector(".btn-details");
 const addBtn = document.querySelector(".btn-add");
 const cancelBtn = document.querySelectorAll(".btn-cancel");
-
+const imgBtn = document.querySelector(".img-add");
 
 function toggleModal(keyword) {
     const modal = document.querySelector(`.modal-${keyword}`);
@@ -25,7 +25,7 @@ function logic() {
 
     addBtn.addEventListener('click', (e) => {
         const keyword = addBtn.textContent;
-        closeModal()
+        closeModal();
         toggleModal(keyword);
     });
 
@@ -34,6 +34,11 @@ function logic() {
             closeModal();
         }) 
     });
+    imgBtn.addEventListener('click', (e) => {
+        const keyword = 'add';
+        closeModal();
+        toggleModal(keyword);
+    })
 }
 
 window.onload = logic();
