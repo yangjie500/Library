@@ -65,14 +65,14 @@ body {
     color: white;
     background-image: -webkit-linear-gradient(270deg, var(--rosewater) 58%, var(--hotpink));
     border-radius: 10px;
-    border-color: palegoldenrod;
+    border-color: rgb(252, 86, 122);
 }
 
 .btn-details {
     color: white;
     background-image: -webkit-linear-gradient(270deg, var(--rosewater) 58%, var(--hotpink));
     border-radius: 10px;
-    border-color: palegoldenrod; 
+    border-color: rgb(252, 86, 122); 
 }
 
 @media only screen and (min-width: 640px) {
@@ -109,24 +109,32 @@ body {
 }
 
 /**/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .modal {
     display: none;
     position: fixed;
     width: 20em ; 
-    height: 80vh;
+    height: 25em;
     background-color: white;
-    opacity: 90%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
     border: 5px solid var(--hotpink);
-    padding-top: 4em;
+    padding-top: .5em;
     z-index: 2;
 }
-
-
-
 
 .modal button {
     position: absolute;
@@ -148,6 +156,64 @@ body {
     top: 8%;
     font-size: 1.5em;
     text-indent: 0;
+}
+
+.modal-add h2 {
+    text-align: center;
+}
+
+.modal-add label {
+    display: block;
+    padding-left: 1em;
+}
+
+.modal-add input {
+    display: block;
+    margin:  .5em auto .5em ;
+}
+
+.modal-add input[type='submit'] {
+    padding: 1em 5em;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    background-image: -webkit-linear-gradient(180deg,#ffc19e, #ffc3cd);
+    border-radius: 50px;
+
+    cursor: pointer;
+}
+
+.missing-message {
+    position: absolute;
+    visibility: hidden;
+    width: 6em;
+    height: 2em;
+    background-color: bisque;
+    border: 2px solid black;
+    border-radius: 50px;
+    text-align: center;
+    padding: .3em;
+}
+
+div[data-0] {
+    right: -15%;
+    top: 24%;
+}
+
+div[data-1] {
+    right: -15%;
+    top: 38%;
+}
+
+div[data-2] {
+    right: -15%;
+    top: 53%;
+}
+
+div[data-3] {
+    right: -15%;
+    top: 67%;
 }
 
 /**/ 
@@ -178,6 +244,8 @@ body {
     border-radius: 50px;
     width: 80%;
     height: 80%;
+    border: 3px solid rgb(26, 110, 136);
+    box-shadow: 2px 2px 10px black;
 }   
 
 .grid-child.add {

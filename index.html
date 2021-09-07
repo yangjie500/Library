@@ -26,20 +26,40 @@
         </div>
         <div class="modal modal-details">
             <button class="btn-cancel">cancel</button>
-            
         </div>
         <div class="modal modal-add">
             <button class="btn-cancel">cancel</button>
+            <h2>Input Book's Detail</h2>
+            <form class="form-book">
+                <label for="name">Book's Name</label>
+                <input type="text" id="name" name="name" value="" placeholder="Name" required data-0>
+                <label for="author">Author's Name</label>
+                <input type="text" id="author" name="author" value="" placeholder="Author" required data-1>
+                <label for="pages">Book's Pages</label>
+                <input type="number" id="pages" name="pages" value="" placeholder="Pages" pattern="[0-9]+" required data-2>
+                <label for="pages-read">Pages Read</label>
+                <input type="number" id="pages-read" name="pages-read" value="" placeholder="Pages Read" pattern="[0-9]+" required data-3>
+                <input type="submit" class="submit-book">
+                <div class="missing-message" data-0>Missing!!!</div>
+                <div class="missing-message" data-1>Missing!!!</div>
+                <div class="missing-message" data-2>Missing!!!</div>
+                <div class="missing-message" data-3>Missing!!!</div>
+            </form>
         </div>
 
         <div class="grid-layout">
+            <div class="grid-child ">
+                <h3>The Hobbit</h3>
+                <p>Robison</p>
+                <p>
+                    Read:
+                    <span>15</span>
+                    <span>/ 200</span>
+                </p>
+            </div>
             <div class="grid-child add">
                 <img class="img-add" src="images/plus.svg" alt="addition">
             </div>
-            <div class="grid-child "></div>
-            <div class="grid-child "></div>
-            <div class="grid-child "></div>
-            
         </div>
     </body>
 </html>
