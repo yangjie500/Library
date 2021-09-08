@@ -4,16 +4,53 @@ const cancelBtn = document.querySelectorAll(".btn-cancel");
 const imgBtn = document.querySelector(".img-add");
 const submitBook = document.querySelector(".submit-book");
 const bookForm = document.querySelector(".form-book");
+const mainGrid = document.querySelector(".grid-layout");
 
-function Book(title, author, pages) {
+function Book(title, author, pages, pagesRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.pagesRead = pagesRead;
 }
 
 Book.prototype = {
     constructor: Book,
 
+    bookHtmlElement: function () {
+        div = document.createElement('div');
+        div.className = 'grid-child';
+
+        h3 = document.createElement('h3');
+        h3.textContent = this.title;
+
+        p1 = document.createElement('p');
+        p1.className = "author"
+        em = document.createElement('em');
+        em.textContent = this.author;
+        by = document.createElement('span');
+        by.style.fontSize = '0.5em';
+        by.textContent = `Written by `;
+        p1.append(by ,em);
+
+        p2 = document.createElement('p');
+        p2.className = 'read';
+        
+        span1 = document.createElement('span');
+        span1.textContent = this.pages;
+        span2 = document.createElement('span');
+        span2.textContent = this.pagesRead;
+
+        text1 = document.createTextNode('Read: ');
+        text2 = document.createTextNode('/');
+
+        p2.append(text1, span2, text2, span1);
+        div.append(h3, p1, p2);
+        return div;
+    },
+
+    addToGrid: function() {
+        mainGrid.insertAdjacentElement('afterbegin', this.bookHtmlElement());
+    }
 
 }
 
@@ -39,7 +76,36 @@ function removeShowMissingInput(num) {
     missingInput.style.visibility = 'hidden';
 }
 
+function formValidation() {
+    for (let i = 0; i <= bookForm.length - 2 ; i++) {
+        if (bookForm[i].value === "") {
+            setTimeout(() => {showMissingInput(i)}, 0);
+            setTimeout(() => {removeShowMissingInput(i)}, 3000);
+            return false;
+        }
+
+        if (parseInt(bookForm[2].value) < parseInt(bookForm[3].value)) {
+            alert('Exceed total number of pages');
+            return false;
+        }
+    }
+}
+
+function createBook() {
+    const name = bookForm['name'].value;
+    const author = bookForm['author'].value;
+    const pages = bookForm['pages'].value;
+    const pageRead = bookForm['pages-read'].value;
+
+    let book = new Book(name, author, pages, pageRead);
+    book.addToGrid();
+    return book;
+}
+
 function logic() {
+    let books = [];
+    let bookCount = 0;
+
     detailsBtn.addEventListener('click', (e) => {
         const keyword = detailsBtn.textContent;
         closeModal()
@@ -66,27 +132,17 @@ function logic() {
 
     submitBook.addEventListener('click', (e) => {
         e.preventDefault();
-        for (let i = 0; i <= bookForm.length - 2 ; i++) {
-            if (bookForm[i].value === "") {
-                setTimeout(() => {showMissingInput(i)}, 0);
-                setTimeout(() => {removeShowMissingInput(i)}, 3000);
-                return;
-            }
-
-            if (parseInt(bookForm[2].value) < parseInt(bookForm[3].value)) {
-                alert('Exceed total number of pages');
-                return;
-            }
-
+        let valid = formValidation();
+        if (valid === false) {
+            return;
         }
-        
 
-        
+        books.push(createBook());
+        bookCount++;
+
         bookForm.reset();
         closeModal();
     })
 }
 
-//  console.log(document.querySelector("input[data-hello]"))
-
-window.onload = logic();
+window.onload = logic();    

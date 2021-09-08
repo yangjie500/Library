@@ -225,7 +225,7 @@ div[data-3] {
                 inset -5px -5px 15px white;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10em, 13em));
     grid-auto-rows: 15em;
     grid-gap: 1em;
     align-items: center;
@@ -240,21 +240,77 @@ div[data-3] {
 }
 
 .grid-child {
+    display: flex;
+    flex-direction: column;
     background-image: -webkit-linear-gradient(90deg, rgb(248, 248, 248) 50%, rgb(114, 221, 240));
     border-radius: 50px;
     width: 80%;
     height: 80%;
     border: 3px solid rgb(26, 110, 136);
-    box-shadow: 2px 2px 10px black;
-}   
+    box-shadow: 2px 2px 10px rgb(9, 139, 139);
+}
 
-.grid-child.add {
+.grid-child .upper{
+    flex: 75%;
+}
+
+.grid-child .lower{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    
+    flex: 25%;
+}
+
+.lower img {
+    width: 1.8em;
+    height: 1em;
+}
+
+.up,
+.down {
+    background-color: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.down img {
+    transform: rotate(180deg);
+}
+
+.grid-child h3 {
+    margin-bottom: .2em;
+    padding: 0 0.3em;
+    text-align: center;
+    word-break: break-all;
+    text-decoration: underline;
+}
+
+.grid-child p.author {
+    margin-top: 0.2em;
+    padding-left: 0.5em;
+    text-transform: capitalize;
+}
+
+.grid-child p.read {
+    text-align: center;
+}
+
+
+/**/
+.add {
+    background-image: -webkit-linear-gradient(90deg, rgb(248, 248, 248) 50%, rgb(114, 221, 240));
+    border-radius: 50px;
+    width: 80%;
+    height: 80%;
+    border: 3px solid rgb(26, 110, 136);
+    box-shadow: 2px 2px 10px rgb(9, 139, 139);
     padding-top: 3.5em;
     padding-bottom: 3.5em;
     display: flex;
     justify-content: center;
 }
-.grid-child.add img {
+.add img {
     width: 5em;
     height: 5em;
     margin-left: -1.1em;
@@ -262,7 +318,7 @@ div[data-3] {
     transition: transform 0.2s linear;
 }
 
-.grid-child.add img:hover {
+.add img:hover {
     transform: translateX(-.7em) scale(2);
 }
 
