@@ -25,7 +25,24 @@
             </div>  
         </div>
         <div class="modal modal-details">
-            <button class="btn-cancel">cancel</button>
+            <div class="details">
+                <button class="btn-cancel">cancel</button>
+                <div class="details__sub">
+                    <div class="img"></div>
+                    <p>Total Books:</p>
+                    <span>123</span>
+                </div>
+                <div class="details__sub">
+                    <div class="img"></div>
+                    <p>Books Completed:</p>
+                    <span>123</span>
+                </div>
+                <div class="details__sub">
+                    <div class="img"></div>
+                    <p>Total Pages Read:</p>
+                    <span>123</span>
+                </div>
+            </div>
         </div>
         <div class="modal modal-add">
             <button class="btn-cancel">cancel</button>
@@ -46,19 +63,61 @@
                 <div class="missing-message" data-3>Missing!!!</div>
             </form>
         </div>
+        
+        <div class="modal modal-edit">
+            <button class="btn-cancel">cancel</button>
+            <h2>Edit Book's Detail</h2>
+            <form class="form-book-edit">
+                <label for="name">Book's Name</label>
+                <input type="text" id="name" name="name" value="" placeholder="Name" required data-0>
+                <label for="author">Author's Name</label>
+                <input type="text" id="author" name="author" value="" placeholder="Author" required data-1>
+                <label for="pages">Book's Pages</label>
+                <input type="number" id="pages" name="pages" value="" placeholder="Pages" pattern="[0-9]+" required data-2>
+                <label for="pages-read">Pages Read</label>
+                <input type="number" id="pages-read" name="pages-read" value="" placeholder="Pages Read" pattern="[0-9]+" required data-3>
+                <input type="submit" class="edit-book" value="Edit"> 
+                <div class="missing-message" data-0>Missing!!!</div>
+                <div class="missing-message" data-1>Missing!!!</div>
+                <div class="missing-message" data-2>Missing!!!</div>
+                <div class="missing-message" data-3>Missing!!!</div>
+            </form>
+        </div>
 
         <div class="grid-layout">
-            <div class="grid-child">
+            <!--
+            <div data-book='1' class="grid-child">
                 <div class="upper">
                     <h3>Mighty Boi</h3>
                     <p class="author"><span style="font-size: 0.5em;">Written by </span><em>Yang Jie</em></p>
-                    <p class="read">Read: <span>123</span>/<span>123</span></p>
+                    <p class="read">Read: <span class="edit">123</span>/<span>123</span></p>
+                </div>
+                <div class="overlay">
+                    <button class="delete"></button>
+                    <button class="edit-detail"></button>
                 </div>
                 <div class="lower">
-                    <button class="up"><img  src="/images/arrow.png"></button>
-                    <button class="down"><img src="/images/arrow.png"></button>
+                    <button class="up"></button>
+                    <button class="down"></button>
                 </div>
             </div>
+
+            <div data-book='2' class="grid-child">
+                <div class="upper">
+                    <h3>Weak Boi</h3>
+                    <p class="author"><span style="font-size: 0.5em;">Written by </span><em>Jeffods</em></p>
+                    <p class="read">Read: <span class="edit">12</span>/<span>123</span></p>
+                </div>
+                <div class="overlay">
+                    <button class="delete"></button>
+                    <button class="edit-detail"></button>
+                </div>
+                <div class="lower">
+                    <button class="up"></button>
+                    <button class="down"></button>
+                </div>
+            </div>
+            -->
 
             <div class="add">
                 <img class="img-add" src="images/plus.svg" alt="addition">
